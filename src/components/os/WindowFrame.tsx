@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from 'react'; // <--- Added useRef
+import React, { useRef } from 'react';
 import Draggable from 'react-draggable';
 import { X, Minus, Square } from 'lucide-react';
 import { useOSStore } from '@/store/useOSStore';
@@ -13,24 +13,39 @@ interface WindowProps {
 }
 
 const WindowFrame: React.FC<WindowProps> = ({ id, title, zIndex, children }) => {
-  const { closeWindow, focusWindow, minimizeWindow } = useOSStore();
-  
-  // FIX: Create a reference for the draggable element
+  // 1. Get toggleMaximize and windows from store
+  const { closeWindow, focusWindow, minimizeWindow, toggleMaximize, windows } = useOSStore();
   const nodeRef = useRef(null);
+
+  // 2. Find the current window state to check if it is maximized
+  const currentWindow = windows.find(w => w.id === id);
+  const isMaximized = currentWindow?.isMaximized;
 
   return (
     <Draggable 
       handle=".window-header" 
-      nodeRef={nodeRef} // <--- Pass the ref here to fix the error
+      nodeRef={nodeRef}
       onStart={() => focusWindow(id)}
+      // 3. Disable dragging if maximized
+      disabled={isMaximized}
+      position={isMaximized ? { x: 0, y: 0 } : undefined}
     >
       <motion.div 
-        ref={nodeRef} // <--- Attach the ref to the actual DOM element
+        ref={nodeRef}
         initial={{ scale: 0.9, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
+        animate={{ 
+          scale: 1, 
+          opacity: 1,
+          // 4. Conditional Sizing: Full screen vs Windowed
+          width: isMaximized ? "100vw" : "600px",
+          height: isMaximized ? "94vh" : "400px", // 94vh leaves space for taskbar
+          top: isMaximized ? 0 : undefined,
+          left: isMaximized ? 0 : undefined
+        }}
         exit={{ scale: 0.9, opacity: 0 }}
         transition={{ type: "spring", stiffness: 300, damping: 25 }}
-        className="absolute top-20 left-20 w-[600px] h-[400px] bg-[#1e1e1e] border border-gray-700 rounded-lg shadow-2xl overflow-hidden flex flex-col"
+        // Remove border radius when maximized for that clean OS look
+        className={`absolute bg-[#1e1e1e] border border-gray-700 shadow-2xl overflow-hidden flex flex-col ${!isMaximized ? 'rounded-lg top-20 left-20' : ''}`}
         style={{ zIndex }}
       >
         {/* Title Bar */}
@@ -38,7 +53,10 @@ const WindowFrame: React.FC<WindowProps> = ({ id, title, zIndex, children }) => 
           <span className="text-gray-300 text-xs font-mono tracking-wide select-none">{title}</span>
           <div className="flex gap-2">
             <button onClick={(e) => { e.stopPropagation(); minimizeWindow(id); }} className="p-1 hover:bg-gray-600 rounded"><Minus size={12} color="gray" /></button>
-            <button className="p-1 hover:bg-gray-600 rounded"><Square size={10} color="gray" /></button>
+            
+            {/* 5. Maximize Button Wired Up */}
+            <button onClick={(e) => { e.stopPropagation(); toggleMaximize(id); }} className="p-1 hover:bg-gray-600 rounded"><Square size={10} color="gray" /></button>
+            
             <button onClick={(e) => { e.stopPropagation(); closeWindow(id); }} className="p-1 hover:bg-red-500 rounded group"><X size={12} className="text-gray-400 group-hover:text-white" /></button>
           </div>
         </div>

@@ -18,6 +18,7 @@ interface OSState {
   openWindow: (id: string, title: string, componentType: string) => void;
   closeWindow: (id: string) => void;
   minimizeWindow: (id: string) => void;
+  toggleMaximize: (id: string) => void; // Defined in interface
   focusWindow: (id: string) => void;
 }
 
@@ -68,6 +69,13 @@ export const useOSStore = create<OSState>((set) => ({
   minimizeWindow: (id) => set((state) => ({
     windows: state.windows.map((w) => 
       w.id === id ? { ...w, isMinimized: true } : w
+    )
+  })),
+
+  // ADDED THIS FUNCTION
+  toggleMaximize: (id) => set((state) => ({
+    windows: state.windows.map((w) => 
+      w.id === id ? { ...w, isMaximized: !w.isMaximized } : w
     )
   }))
 }));

@@ -37,8 +37,9 @@ export const fileSystem = [
   component: 'PDFViewer', // <--- Changed from TextViewer
   content: 'Resume' 
 },
+  // ... inside fileSystem array ...
   {
-    id: 'projects_folder',
+    id: 'projects',
     title: '~/projects',
     type: 'folder',
     icon: Layout,
@@ -52,7 +53,9 @@ export const fileSystem = [
         data: {
           tagline: "AI-Powered Environmental Health Ecosystem",
           tech: ["FastAPI", "Azure OpenAI", "Docker"],
-          desc: "Architected a health protection platform for vulnerable users (Asthma/COPD) using RAG and Azure Maps."
+          desc: "Architected a health protection platform for vulnerable users (Asthma/COPD) using RAG and Azure Maps.",
+          liveUrl: "https://zenith-health.demo", // REPLACE with your actual link
+          repoUrl: "https://github.com/yourusername/zenith" // REPLACE with your actual link
         }
       },
       {
@@ -64,23 +67,15 @@ export const fileSystem = [
         data: {
           tagline: "Distributed Email Automation Engine",
           tech: ["Node.js", "Redis (BullMQ)", "PostgreSQL"],
-          desc: "Engineered a scalable automation platform handling bulk dispatching via message queues."
+          desc: "Engineered a scalable automation platform handling bulk dispatching via message queues.",
+          liveUrl: "https://mailflow.demo",
+          repoUrl: "https://github.com/yourusername/mailflow"
         }
       },
-      {
-        id: 'legacy_protocol',
-        title: 'dead_mans_switch.sh',
-        type: 'app',
-        icon: ShieldAlert,
-        component: 'ProjectViewer',
-        data: {
-          tagline: "Legacy Protocol & Digital Vault",
-          tech: ["AES-256", "Node-cron", "Zero-Knowledge"],
-          desc: "Implemented Zero-Knowledge Architecture to secure digital legacy data with a custom heartbeat monitor."
-        }
-      }
+      // ... Add similar liveUrl/repoUrl fields to other projects ...
     ]
   },
+// ...
   {
     id: 'experience',
     title: 'work_logs',

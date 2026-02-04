@@ -1,6 +1,6 @@
 import React from 'react';
 import { fileSystem } from '@/utils/fileSystem';
-import { Activity, Server, Database, Globe, ExternalLink } from 'lucide-react';
+import { Activity, Server, Globe, ExternalLink } from 'lucide-react';
 
 interface ProjectViewerProps {
   projectId: string;
@@ -21,8 +21,10 @@ const ProjectViewer: React.FC<ProjectViewerProps> = ({ projectId }) => {
 
   const project = findProject(fileSystem);
 
-  if (!project) return <div className="text-red-500">404: Process Not Found</div>;
-  const { tagline, tech, desc } = project.data;
+  if (!project) return <div className="text-red-500 p-4 font-mono">404: Process Not Found</div>;
+  
+  // Destructure the new URL fields here
+  const { tagline, tech, desc, liveUrl, repoUrl } = project.data;
 
   return (
     <div className="flex flex-col h-full bg-[#0d0d0d] text-green-400 font-mono p-6 overflow-y-auto">
@@ -39,14 +41,14 @@ const ProjectViewer: React.FC<ProjectViewerProps> = ({ projectId }) => {
       </div>
 
       {/* Main Grid */}
-      <div className="grid grid-cols-3 gap-6 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         {/* Panel 1: Tech Stack */}
         <div className="col-span-1 bg-white/5 p-4 rounded border border-white/10">
           <h3 className="text-xs text-gray-400 uppercase tracking-widest mb-3 flex items-center gap-2">
             <Server size={12} /> Dependencies
           </h3>
           <div className="flex flex-wrap gap-2">
-            {tech.map((t: string) => (
+            {tech && tech.map((t: string) => (
               <span key={t} className="px-2 py-1 bg-black border border-gray-700 text-xs text-blue-300 rounded">
                 {t}
               </span>
@@ -55,7 +57,7 @@ const ProjectViewer: React.FC<ProjectViewerProps> = ({ projectId }) => {
         </div>
 
         {/* Panel 2: Description */}
-        <div className="col-span-2 bg-white/5 p-4 rounded border border-white/10">
+        <div className="col-span-1 md:col-span-2 bg-white/5 p-4 rounded border border-white/10">
            <h3 className="text-xs text-gray-400 uppercase tracking-widest mb-3 flex items-center gap-2">
             <Activity size={12} /> System Logs
           </h3>
@@ -67,14 +69,25 @@ const ProjectViewer: React.FC<ProjectViewerProps> = ({ projectId }) => {
         </div>
       </div>
 
-      {/* Footer Actions */}
+      {/* Footer Actions (Links) */}
       <div className="mt-auto pt-6 border-t border-gray-800 flex justify-end gap-4">
-        <button className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white text-sm font-bold rounded transition-colors">
-          <Globe size={14} /> Launch Demo
-        </button>
-        <button className="flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white text-sm font-bold rounded transition-colors">
-          <ExternalLink size={14} /> View Source
-        </button>
+        {liveUrl && (
+          <button 
+            onClick={() => window.open(liveUrl, '_blank')}
+            className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white text-sm font-bold rounded transition-colors"
+          >
+            <Globe size={14} /> Launch Demo
+          </button>
+        )}
+        
+        {repoUrl && (
+          <button 
+            onClick={() => window.open(repoUrl, '_blank')}
+            className="flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white text-sm font-bold rounded transition-colors"
+          >
+            <ExternalLink size={14} /> View Source
+          </button>
+        )}
       </div>
     </div>
   );
