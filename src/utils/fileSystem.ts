@@ -1,0 +1,113 @@
+import { 
+  Terminal, User, Code, Server, 
+  Cpu, Layout, FileText, Mail, 
+  ShieldAlert, Activity 
+} from 'lucide-react';
+
+export const fileSystem = [
+  {
+    id: 'about',
+    title: 'sys_info.txt',
+    type: 'file',
+    icon: User,
+    content: {
+      name: "Siddharth Singh",
+      role: "Full Stack Engineer & System Architect",
+      education: "B.Tech (ECE) @ IIIT Sri City (2023-2027) | CGPA: 8.51",
+      location: "India"
+    }
+  },
+  {
+    id: 'skills',
+    title: 'skills_matrix.exe',
+    type: 'app',
+    icon: Cpu,
+    component: 'SkillsViewer', // We will build this component later
+    data: {
+      languages: ["Python", "TypeScript", "C++", "Kotlin", "SQL"],
+      core: ["System Architecture", "Microservices", "RAG Pipelines", "Zero-Knowledge Arch"],
+      stack: ["Next.js", "FastAPI", "Docker", "Redis", "AWS"]
+    }
+  },
+  {
+  id: 'resume',
+  title: 'Resume.pdf',
+  type: 'file',
+  icon: FileText,
+  component: 'PDFViewer', // <--- Changed from TextViewer
+  content: 'Resume' 
+},
+  {
+    id: 'projects_folder',
+    title: '~/projects',
+    type: 'folder',
+    icon: Layout,
+    children: [
+      {
+        id: 'zenith',
+        title: 'ZENITH_Env.sys',
+        type: 'app',
+        icon: Activity,
+        component: 'ProjectViewer',
+        data: {
+          tagline: "AI-Powered Environmental Health Ecosystem",
+          tech: ["FastAPI", "Azure OpenAI", "Docker"],
+          desc: "Architected a health protection platform for vulnerable users (Asthma/COPD) using RAG and Azure Maps."
+        }
+      },
+      {
+        id: 'mailflow',
+        title: 'mailflow_daemon',
+        type: 'app',
+        icon: Mail,
+        component: 'ProjectViewer',
+        data: {
+          tagline: "Distributed Email Automation Engine",
+          tech: ["Node.js", "Redis (BullMQ)", "PostgreSQL"],
+          desc: "Engineered a scalable automation platform handling bulk dispatching via message queues."
+        }
+      },
+      {
+        id: 'legacy_protocol',
+        title: 'dead_mans_switch.sh',
+        type: 'app',
+        icon: ShieldAlert,
+        component: 'ProjectViewer',
+        data: {
+          tagline: "Legacy Protocol & Digital Vault",
+          tech: ["AES-256", "Node-cron", "Zero-Knowledge"],
+          desc: "Implemented Zero-Knowledge Architecture to secure digital legacy data with a custom heartbeat monitor."
+        }
+      }
+    ]
+  },
+  {
+    id: 'experience',
+    title: 'work_logs',
+    type: 'folder',
+    icon: Server,
+    children: [
+      {
+        id: 'onlearn',
+        title: 'Onlearn_Internship.log',
+        type: 'file',
+        icon: FileText,
+        content: "Role: Software Developer Intern\nPeriod: Jan 2026 - Present\n\n- Driving product growth and user engagement strategies.\n- Optimizing platform performance for retention."
+      },
+      {
+        id: 'qbtrix',
+        title: 'Qbtrix_Internship.log',
+        type: 'file',
+        icon: FileText,
+        content: "Role: SDE Intern\nPeriod: July 2024 - Aug 2024\n\n- Optimized backend API performance by 20%.\n- Integrated generative AI models for Interacly platform."
+      }
+    ]
+  },
+  {
+    id: 'contact',
+    title: 'connect.sh',
+    type: 'executable',
+    icon: Terminal,
+    component: 'Terminal'
+  }
+];
