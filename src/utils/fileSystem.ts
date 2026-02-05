@@ -12,7 +12,7 @@ export const fileSystem = [
     icon: User,
     content: {
       name: "Siddharth Singh",
-      role: "Full Stack Engineer & System Architect",
+      role: "Full Stack Developer ",
       education: "B.Tech (ECE) @ IIIT Sri City (2023-2027) | CGPA: 8.51",
       location: "India"
     }
@@ -22,7 +22,7 @@ export const fileSystem = [
     title: 'skills_matrix.exe',
     type: 'app',
     icon: Cpu,
-    component: 'SkillsViewer', // We will build this component later
+    component: 'SkillsViewer', 
     data: {
       languages: ["Python", "TypeScript", "C++", "Kotlin", "SQL"],
       core: ["System Architecture", "Microservices", "RAG Pipelines", "Zero-Knowledge Arch"],
@@ -34,10 +34,10 @@ export const fileSystem = [
   title: 'Resume.pdf',
   type: 'file',
   icon: FileText,
-  component: 'PDFViewer', // <--- Changed from TextViewer
+  component: 'PDFViewer', 
   content: 'Resume' 
 },
-  // ... inside fileSystem array ...
+  
   {
     id: 'projects',
     title: '~/projects',
@@ -54,8 +54,8 @@ export const fileSystem = [
           tagline: "AI-Powered Environmental Health Ecosystem",
           tech: ["FastAPI", "Azure OpenAI", "Docker"],
           desc: "Architected a health protection platform for vulnerable users (Asthma/COPD) using RAG and Azure Maps.",
-          liveUrl: "https://zenith-health.demo", // REPLACE with your actual link
-          repoUrl: "https://github.com/yourusername/zenith" // REPLACE with your actual link
+          liveUrl: "https://zenith-health.demo", 
+          repoUrl: "https://github.com/yourusername/zenith" 
         }
       },
       {
@@ -68,7 +68,21 @@ export const fileSystem = [
           tagline: "Distributed Email Automation Engine",
           tech: ["Node.js", "Redis (BullMQ)", "PostgreSQL"],
           desc: "Engineered a scalable automation platform handling bulk dispatching via message queues.",
-          liveUrl: "https://mailflow.demo",
+          liveUrl: "https://mailflow-three.vercel.app",
+          repoUrl: "https://github.com/yourusername/mailflow"
+        }
+      },
+      {
+        id: 'DeadMansSwitch',
+        title: 'DeadMansSwitch.sys',
+        type: 'Website',
+        icon: Mail,
+        component: 'ProjectViewer',
+        data: {
+          tagline: "A decentralized, cryptographic legacy protocol that ensures your critical data is transferred to a trustee if you become inactive.",
+          tech: ["Node.js", "Redis (BullMQ)", "PostgreSQL"],
+          desc: "Engineered a scalable automation platform handling bulk dispatching via message queues.",
+          liveUrl: "https://mailflow-three.vercel.app",
           repoUrl: "https://github.com/yourusername/mailflow"
         }
       },
