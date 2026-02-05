@@ -79,9 +79,9 @@ export const fileSystem = [
         icon: Mail,
         component: 'ProjectViewer',
         data: {
-          tagline: "A decentralized, cryptographic legacy protocol that ensures your critical data is transferred to a trustee if you become inactive.",
-          tech: ["Node.js", "Redis (BullMQ)", "PostgreSQL"],
-          desc: "Engineered a scalable automation platform handling bulk dispatching via message queues.",
+          tagline: "Zero-Knowledge Digital Inheritance Vault.",
+          tech: ["Node.js", "Node Cron", "MongoDB", "Zero-Knowledge Proofs","React"],
+          desc: "Dead Man's Switch is a secure, automated fail-safe system designed to handle digital assets or sensitive information in the event of the owner's unavailability.",
           liveUrl: "https://mailflow-three.vercel.app",
           repoUrl: "https://github.com/yourusername/mailflow"
         }
