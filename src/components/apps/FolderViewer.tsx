@@ -17,7 +17,9 @@ const FolderViewer: React.FC<FolderViewerProps> = ({ folderId }) => {
   
   // If we found the parent, we need to grab the specific child folder
   // Note: This logic depends on your depth. For the root 'projects', it's direct.
-  const contents = folder?.id === folderId ? folder.children : folder?.children?.find(c => c.id === folderId)?.children;
+  const contents = folder?.id === folderId 
+  ? (folder as any).children 
+  : (folder?.children?.find((c: any) => c.id === folderId) as any)?.children;
 
   if (!contents) return <div className="text-red-500 p-4">Error: Directory not found.</div>;
 
