@@ -155,7 +155,7 @@ export default function Desktop() {
               </h2>
               <div className="bg-black/40 p-4 rounded border border-white/10 backdrop-blur-sm">
                 <div className="text-green-400 whitespace-pre-wrap">
-                   <TypewriterEffect text={`> Loading User Profile...\n> Name: Siddharth Singh\n> Role: Full Stack Engineer\n> Status: Open to Work\n> College: IIIT Sri City\n\n> "I build scalable systems and solve complex problems."\n\n> Current Focus: [System Architecture, Microservices]`} />
+                   <TypewriterEffect text={`> Loading User Profile...\n> Name: Siddharth Singh\n> Role: Full Stack Engineer\n> Education: B.Tech ECE @ IIIT Sri City (CGPA 8.5)\n> Leadership: Placement Coordinator, Android Lead @ IOTA\n\n> "Dedicated to solving engineering challenges through efficient coding."\n\n> Current Focus: [System Architecture, Microservices, RAG Pipelines]`} />
                    <span className="animate-pulse inline-block w-2 h-4 bg-green-500 ml-1 align-middle"></span>
                 </div>
               </div>

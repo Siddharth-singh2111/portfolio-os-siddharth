@@ -1,9 +1,8 @@
 import { 
-  Terminal, User, Code, Server, 
-  Cpu, Layout, FileText, Mail, 
-  ShieldAlert, Activity 
+  User, Cpu, Layout, Briefcase, 
+  Terminal, Activity, Mail, ShieldAlert,
+  Scale, Share2, DollarSign, FileCode
 } from 'lucide-react';
-import { Briefcase } from 'lucide-react';
 
 export const fileSystem = [
   {
@@ -11,34 +10,23 @@ export const fileSystem = [
     title: 'sys_info.txt',
     type: 'file',
     icon: User,
-    content: {
-      name: "Siddharth Singh",
-      role: "Full Stack Developer ",
-      education: "B.Tech (ECE) @ IIIT Sri City (2023-2027) | CGPA: 8.51",
-      location: "India"
-    }
+    component: 'TextViewer', 
+    content: {}
+  },
+  {
+    id: 'experience',
+    title: 'experience.log',
+    type: 'app',
+    icon: Briefcase,
+    component: 'ExperienceViewer'
   },
   {
     id: 'skills',
     title: 'skills_matrix.exe',
     type: 'app',
     icon: Cpu,
-    component: 'SkillsViewer', 
-    data: {
-      languages: ["Python", "TypeScript", "C++", "Kotlin", "SQL"],
-      core: ["System Architecture", "Microservices", "RAG Pipelines", "Zero-Knowledge Arch"],
-      stack: ["Next.js", "FastAPI", "Docker", "Redis", "AWS"]
-    }
+    component: 'SkillsViewer'
   },
-  {
-  id: 'resume',
-  title: 'Resume.pdf',
-  type: 'file',
-  icon: FileText,
-  component: 'PDFViewer', 
-  content: 'Resume' 
-},
-  
   {
     id: 'projects',
     title: '~/projects',
@@ -47,16 +35,16 @@ export const fileSystem = [
     children: [
       {
         id: 'zenith',
-        title: 'ZENITH_Env.sys',
+        title: 'ZENITH_Health.sys',
         type: 'app',
         icon: Activity,
         component: 'ProjectViewer',
         data: {
-          tagline: "AI-Powered Environmental Health Ecosystem",
-          tech: ["FastAPI", "Azure OpenAI", "Docker"],
-          desc: "Architected a health protection platform for vulnerable users (Asthma/COPD) using RAG and Azure Maps.",
-          liveUrl: "https://zenith-health.demo", 
-          repoUrl: "https://github.com/yourusername/zenith" 
+          tagline: "AI-Powered Health Protection Platform",
+          tech: ["Python", "FastAPI", "Azure OpenAI", "Azure Maps"],
+          desc: "Architected a personalized health platform using Azure OpenAI for reasoning. Implemented an intelligent RAG-based context engine synthesizing real-time weather data with user medical history. Engineered safety guardrails to filter hallucinations.",
+          liveUrl: "https://zenith.demo", 
+          repoUrl: "https://github.com/yourusername/zenith"
         }
       },
       {
@@ -67,50 +55,82 @@ export const fileSystem = [
         component: 'ProjectViewer',
         data: {
           tagline: "Distributed Email Automation Engine",
-          tech: ["Node.js", "Redis (BullMQ)", "PostgreSQL"],
-          desc: "Engineered a scalable automation platform handling bulk dispatching via message queues.",
-          liveUrl: "https://mailflow-three.vercel.app",
+          tech: ["TypeScript", "Node.js", "Redis (BullMQ)", "PostgreSQL"],
+          desc: "Engineered a scalable automation platform handling bulk dispatching via Redis message queues. Decoupled processing to ensure high availability and architected a custom analytics engine using 1x1 tracking pixels.",
+          liveUrl: "https://mailflow.demo",
           repoUrl: "https://github.com/yourusername/mailflow"
         }
       },
       {
-        id: 'DeadMansSwitch',
-        title: 'DeadMansSwitch.sys',
-        type: 'Website',
-        icon: Mail,
+        id: 'civic',
+        title: 'CivicSimplifier.exe',
+        type: 'app',
+        icon: Scale, // Represents Legal
         component: 'ProjectViewer',
         data: {
-          tagline: "Zero-Knowledge Digital Inheritance Vault.",
-          tech: ["Node.js", "Node Cron", "MongoDB", "Zero-Knowledge Proofs","React"],
-          desc: "Dead Man's Switch is a secure, automated fail-safe system designed to handle digital assets or sensitive information in the event of the owner's unavailability.",
-          liveUrl: "https://mailflow-three.vercel.app",
-          repoUrl: "https://github.com/yourusername/mailflow"
+          tagline: "RAG SaaS for Legal Contracts",
+          tech: ["React", "FastAPI", "Pinecone", "Cohere"],
+          desc: "Built a production-ready RAG SaaS to simplify legal contracts using semantic search. Engineered a distributed architecture deployed on Vercel (Frontend) and Render (Backend).",
+          liveUrl: "https://civic.demo",
+          repoUrl: "https://github.com/yourusername/civic"
         }
       },
-      // ... Add similar liveUrl/repoUrl fields to other projects ...
+      {
+        id: 'legacy',
+        title: 'dead_mans_switch.sh',
+        type: 'app',
+        icon: ShieldAlert,
+        component: 'ProjectViewer',
+        data: {
+          tagline: "Zero-Knowledge Digital Vault",
+          tech: ["Node.js", "Cron", "AES-256", "Crypto"],
+          desc: "Implemented Zero-Knowledge Architecture with client-side encryption to secure digital legacy data. Engineered a custom heartbeat monitor using Node-cron and a firewall-resistant notification system.",
+          liveUrl: "https://dms.demo",
+          repoUrl: "https://github.com/yourusername/dms"
+        }
+      },
+      {
+        id: 'vectorshift',
+        title: 'VectorShift_Flow',
+        type: 'app',
+        icon: Share2, // Represents Nodes/Workflow
+        component: 'ProjectViewer',
+        data: {
+          tagline: "Interactive Workflow Editor",
+          tech: ["React", "ReactFlow", "FastAPI"],
+          desc: "Developed an interactive drag-and-drop workflow editor using ReactFlow, backed by a FastAPI validation engine. Automated logic verification for complex pipelines.",
+          liveUrl: "https://vectorshift.demo",
+          repoUrl: "https://github.com/yourusername/vectorshift"
+        }
+      },
+      {
+        id: 'splitease',
+        title: 'SplitEase_Ledger',
+        type: 'app',
+        icon: DollarSign,
+        component: 'ProjectViewer',
+        data: {
+          tagline: "Group Expense Tracker",
+          tech: ["React", "Node.js", "MongoDB"],
+          desc: "Engineered a group expense tracker with real-time ledger balancing. Implemented transparent transaction history and settlement logic for accurate shared expense tracking.",
+          liveUrl: "https://splitease.demo",
+          repoUrl: "https://github.com/yourusername/splitease"
+        }
+      }
     ]
   },
   {
-    id: 'experience',
-    title: 'experience.log',
+    id: 'email_client',
+    title: 'Mail Client',
     type: 'app',
-    icon: Briefcase,
-    component: 'ExperienceViewer'
+    icon: Mail,
+    component: 'ContactApp'
   },
-// ...
-  
   {
-    id: 'contact',
-    title: 'connect.sh',
+    id: 'terminal',
+    title: 'terminal.sh',
     type: 'executable',
     icon: Terminal,
     component: 'Terminal'
-  },
-  {
-  id: 'email_client',
-  title: 'Mail Client',
-  type: 'app',
-  icon: Mail, // Make sure to import Mail from lucide-react
-  component: 'ContactApp'
-}
+  }
 ];
