@@ -17,16 +17,20 @@ const WindowFrame: React.FC<WindowProps> = ({ id, title, zIndex, children }) => 
   const { closeWindow, focusWindow, minimizeWindow, toggleMaximize, windows } = useOSStore();
   const nodeRef = useRef(null);
 
-  // 2. Find the current window state to check if it is maximized
+  // 2. Find the current window state to check if it is maximized or minimized
   const currentWindow = windows.find(w => w.id === id);
   const isMaximized = currentWindow?.isMaximized;
+  const isMinimized = currentWindow?.isMinimized; // <--- Get minimized state
+
+  // 3. FIX: Do not render if minimized (it lives in the taskbar now)
+  if (isMinimized) return null;
 
   return (
     <Draggable 
       handle=".window-header" 
       nodeRef={nodeRef}
       onStart={() => focusWindow(id)}
-      // 3. Disable dragging if maximized
+      // 4. Disable dragging if maximized
       disabled={isMaximized}
       position={isMaximized ? { x: 0, y: 0 } : undefined}
     >
@@ -36,7 +40,7 @@ const WindowFrame: React.FC<WindowProps> = ({ id, title, zIndex, children }) => 
         animate={{ 
           scale: 1, 
           opacity: 1,
-          // 4. Conditional Sizing: Full screen vs Windowed
+          // 5. Conditional Sizing: Full screen vs Windowed
           width: isMaximized ? "100vw" : "600px",
           height: isMaximized ? "94vh" : "400px", // 94vh leaves space for taskbar
           top: isMaximized ? 0 : undefined,
@@ -54,7 +58,7 @@ const WindowFrame: React.FC<WindowProps> = ({ id, title, zIndex, children }) => 
           <div className="flex gap-2">
             <button onClick={(e) => { e.stopPropagation(); minimizeWindow(id); }} className="p-1 hover:bg-gray-600 rounded"><Minus size={12} color="gray" /></button>
             
-            {/* 5. Maximize Button Wired Up */}
+            {/* Maximize Button Wired Up */}
             <button onClick={(e) => { e.stopPropagation(); toggleMaximize(id); }} className="p-1 hover:bg-gray-600 rounded"><Square size={10} color="gray" /></button>
             
             <button onClick={(e) => { e.stopPropagation(); closeWindow(id); }} className="p-1 hover:bg-red-500 rounded group"><X size={12} className="text-gray-400 group-hover:text-white" /></button>

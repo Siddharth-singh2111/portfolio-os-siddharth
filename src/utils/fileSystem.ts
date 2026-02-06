@@ -3,6 +3,7 @@ import {
   Cpu, Layout, FileText, Mail, 
   ShieldAlert, Activity 
 } from 'lucide-react';
+import { Briefcase } from 'lucide-react';
 
 export const fileSystem = [
   {
@@ -89,34 +90,27 @@ export const fileSystem = [
       // ... Add similar liveUrl/repoUrl fields to other projects ...
     ]
   },
-// ...
   {
     id: 'experience',
-    title: 'work_logs',
-    type: 'folder',
-    icon: Server,
-    children: [
-      {
-        id: 'onlearn',
-        title: 'Onlearn_Internship.log',
-        type: 'file',
-        icon: FileText,
-        content: "Role: Software Developer Intern\nPeriod: Jan 2026 - Present\n\n- Driving product growth and user engagement strategies.\n- Optimizing platform performance for retention."
-      },
-      {
-        id: 'qbtrix',
-        title: 'Qbtrix_Internship.log',
-        type: 'file',
-        icon: FileText,
-        content: "Role: SDE Intern\nPeriod: July 2024 - Aug 2024\n\n- Optimized backend API performance by 20%.\n- Integrated generative AI models for Interacly platform."
-      }
-    ]
+    title: 'experience.log',
+    type: 'app',
+    icon: Briefcase,
+    component: 'ExperienceViewer'
   },
+// ...
+  
   {
     id: 'contact',
     title: 'connect.sh',
     type: 'executable',
     icon: Terminal,
     component: 'Terminal'
-  }
+  },
+  {
+  id: 'email_client',
+  title: 'Mail Client',
+  type: 'app',
+  icon: Mail, // Make sure to import Mail from lucide-react
+  component: 'ContactApp'
+}
 ];
