@@ -12,8 +12,9 @@ import PDFViewer from '@/components/apps/PDFViewer';
 import ContactApp from '@/components/apps/ContactApp'; 
 import ContextMenu from '@/components/os/ContextMenu';
 import MobileLayout from '@/components/os/MobileLayout';
-import { Github, Linkedin, Power, Wifi } from 'lucide-react'; // Added Wifi icon for aesthetics
+import { Github, Linkedin, Power, Wifi } from 'lucide-react'; 
 import ExperienceViewer from '@/components/apps/ExperienceViewer'; 
+import UserProfile from '@/components/os/UserProfile'; 
 
 // 1. Helper Component for the Typing Effect
 const TypewriterEffect = ({ text }: { text: string }) => {
@@ -112,7 +113,7 @@ export default function Desktop() {
       
       {/* 2. Vignette Effect */}
       <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)]"></div>
-
+      <UserProfile />
       {/* Desktop Icons Grid */}
       <div className="grid grid-flow-col grid-rows-6 gap-6 p-6 w-max h-full relative z-10">
         {fileSystem.map((item) => (
