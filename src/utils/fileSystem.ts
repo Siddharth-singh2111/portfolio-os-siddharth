@@ -104,7 +104,7 @@ export const fileSystem = [
         }
       },
       {
-        id: 'splitease',
+        id: 'Splitease',
         title: 'SplitEase_Ledger',
         type: 'app',
         icon: DollarSign,
