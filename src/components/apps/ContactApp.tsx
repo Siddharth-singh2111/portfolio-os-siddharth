@@ -14,7 +14,7 @@ const ContactApp = () => {
     return (
       <div className="h-full flex flex-col items-center justify-center text-green-400 p-6 text-center">
         <Send size={48} className="mb-4" />
-        <h2 className="text-xl font-bold">Transmission Sent</h2>
+        <h2 className="text-xl font-bold">Message Sent</h2>
         <p className="text-sm mt-2 text-gray-400">I will respond to your frequency shortly.</p>
         <button onClick={() => setSent(false)} className="mt-6 text-xs underline">Send another</button>
       </div>
@@ -46,7 +46,7 @@ const ContactApp = () => {
 
         <div className="flex justify-end">
           <button type="submit" className="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2 rounded text-sm font-bold flex items-center gap-2">
-            <Send size={14} /> SEND_MAIL
+            <Send size={14} /> SEND MAIL
           </button>
         </div>
       </form>
