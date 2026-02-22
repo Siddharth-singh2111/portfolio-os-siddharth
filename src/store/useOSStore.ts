@@ -18,7 +18,7 @@ interface OSState {
   openWindow: (id: string, title: string, componentType: string) => void;
   closeWindow: (id: string) => void;
   minimizeWindow: (id: string) => void;
-  toggleMaximize: (id: string) => void; // Defined in interface
+  toggleMaximize: (id: string) => void;
   focusWindow: (id: string) => void;
 }
 
@@ -43,7 +43,7 @@ export const useOSStore = create<OSState>((set) => ({
       title,
       isOpen: true,
       isMinimized: false,
-      isMaximized: false,
+      isMaximized: true, // <--- CHANGED THIS TO TRUE (Opens full screen by default)
       zIndex: 100, // Starts on top
       componentType
     };
@@ -56,7 +56,7 @@ export const useOSStore = create<OSState>((set) => ({
 
   closeWindow: (id) => set((state) => ({
     windows: state.windows.filter((w) => w.id !== id),
-    activeWindowId: null // Reset focus
+    activeWindowId: null 
   })),
 
   focusWindow: (id) => set((state) => ({
@@ -72,7 +72,6 @@ export const useOSStore = create<OSState>((set) => ({
     )
   })),
 
-  // ADDED THIS FUNCTION
   toggleMaximize: (id) => set((state) => ({
     windows: state.windows.map((w) => 
       w.id === id ? { ...w, isMaximized: !w.isMaximized } : w

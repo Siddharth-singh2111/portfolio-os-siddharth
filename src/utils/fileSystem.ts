@@ -34,20 +34,6 @@ export const fileSystem = [
     icon: Layout,
     children: [
       {
-        id: 'zenith',
-        title: 'ZENITH_Health.sys',
-        type: 'app',
-        icon: Activity,
-        component: 'ProjectViewer',
-        data: {
-          tagline: "AI-Powered Health Protection Platform",
-          tech: ["Python", "FastAPI", "Azure OpenAI", "Azure Maps"],
-          desc: "Architected a personalized health platform using Azure OpenAI for reasoning. Implemented an intelligent RAG-based context engine synthesizing real-time weather data with user medical history. Engineered safety guardrails to filter hallucinations.",
-          liveUrl: "https://zenith.demo", 
-          repoUrl: "https://github.com/yourusername/zenith"
-        }
-      },
-      {
         id: 'mailflow',
         title: 'mailflow_daemon',
         type: 'app',
@@ -57,8 +43,8 @@ export const fileSystem = [
           tagline: "Distributed Email Automation Engine",
           tech: ["TypeScript", "Node.js", "Redis (BullMQ)", "PostgreSQL"],
           desc: "Engineered a scalable automation platform handling bulk dispatching via Redis message queues. Decoupled processing to ensure high availability and architected a custom analytics engine using 1x1 tracking pixels.",
-          liveUrl: "https://mailflow.demo",
-          repoUrl: "https://github.com/yourusername/mailflow"
+          liveUrl: "https://mailflow-three.vercel.app",
+          repoUrl: "https://github.com/Siddharth-singh2111/MailFlow"
         }
       },
       {
@@ -71,8 +57,8 @@ export const fileSystem = [
           tagline: "RAG SaaS for Legal Contracts",
           tech: ["React", "FastAPI", "Pinecone", "Cohere"],
           desc: "Built a production-ready RAG SaaS to simplify legal contracts using semantic search. Engineered a distributed architecture deployed on Vercel (Frontend) and Render (Backend).",
-          liveUrl: "https://civic.demo",
-          repoUrl: "https://github.com/yourusername/civic"
+          liveUrl: "https://civic-simplifier.vercel.app",
+          repoUrl: "https://github.com/Siddharth-singh2111/Civic-Simplifier"
         }
       },
       {
@@ -85,8 +71,8 @@ export const fileSystem = [
           tagline: "Zero-Knowledge Digital Vault",
           tech: ["Node.js", "Cron", "AES-256", "Crypto"],
           desc: "Implemented Zero-Knowledge Architecture with client-side encryption to secure digital legacy data. Engineered a custom heartbeat monitor using Node-cron and a firewall-resistant notification system.",
-          liveUrl: "https://dms.demo",
-          repoUrl: "https://github.com/yourusername/dms"
+          liveUrl: "https://dead-mans-switch-eight.vercel.app",
+          repoUrl: "https://github.com/Siddharth-singh2111/dead-mans-switch"
         }
       },
       {
@@ -99,8 +85,8 @@ export const fileSystem = [
           tagline: "Interactive Workflow Editor",
           tech: ["React", "ReactFlow", "FastAPI"],
           desc: "Developed an interactive drag-and-drop workflow editor using ReactFlow, backed by a FastAPI validation engine. Automated logic verification for complex pipelines.",
-          liveUrl: "https://vectorshift.demo",
-          repoUrl: "https://github.com/yourusername/vectorshift"
+          liveUrl: "https://vector-shift-project.vercel.app",
+          repoUrl: "https://github.com/Siddharth-singh2111/Vector-Shift-project"
         }
       },
       {
@@ -113,8 +99,8 @@ export const fileSystem = [
           tagline: "Group Expense Tracker",
           tech: ["React", "Node.js", "MongoDB"],
           desc: "Engineered a group expense tracker with real-time ledger balancing. Implemented transparent transaction history and settlement logic for accurate shared expense tracking.",
-          liveUrl: "https://splitease.demo",
-          repoUrl: "https://github.com/yourusername/splitease"
+          liveUrl: "https://split-ease-nine.vercel.app",
+          repoUrl: "https://github.com/Siddharth-singh2111/SplitEase"
         }
       }
     ]

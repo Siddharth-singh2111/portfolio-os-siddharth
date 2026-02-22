@@ -14,9 +14,8 @@ import ContextMenu from '@/components/os/ContextMenu';
 import MobileLayout from '@/components/os/MobileLayout';
 import { Github, Linkedin, Power, Wifi } from 'lucide-react'; 
 import ExperienceViewer from '@/components/apps/ExperienceViewer'; 
-import UserProfile from '@/components/os/UserProfile'; 
 
-// 1. Helper Component for the Typing Effect
+// Helper Component for the Typing Effect
 const TypewriterEffect = ({ text }: { text: string }) => {
   const [displayed, setDisplayed] = useState('');
   
@@ -37,16 +36,39 @@ const TypewriterEffect = ({ text }: { text: string }) => {
   return <span>{displayed}</span>;
 };
 
+// The Boot Log Lines
+const bootLogsList = [
+  "PhoenixTechnologies ROM BIOS PLUS Version 1.10 A04",
+  "Copyright (C) 1985-2026 Phoenix Technologies Ltd.",
+  "",
+  "CPU = AMD Ryzen 7 5800X",
+  "640K System RAM Passed",
+  "16384M Extended RAM Passed",
+  "1024 KB L2 Cache",
+  "System BIOS shadowed",
+  "Video BIOS shadowed",
+  "",
+  "Booting from Hard Disk...",
+  "Loading Siddharth_OS kernel...",
+  "Mounting root filesystem........ [ OK ]",
+  "Initializing network adapters... [ OK ]",
+  "Starting UI Manager............. [ OK ]"
+];
+
 export default function Desktop() {
   const { windows, openWindow, minimizeWindow } = useOSStore();
   const [contextMenu, setContextMenu] = useState<{ x: number; y: number; itemId: string } | null>(null);
+  
   const [booting, setBooting] = useState(true);
+  const [bootLogs, setBootLogs] = useState<string[]>([]);
+  
   const [startMenuOpen, setStartMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
   const handleShutdown = () => {
     setStartMenuOpen(false);
-    setBooting(true); 
+    setBooting(true);
+    setBootLogs([]); // Reset logs on restart
   };
 
   const handleShowDesktop = () => {
@@ -61,11 +83,23 @@ export default function Desktop() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Boot Sequence
+  // Natural BIOS Boot Sequence
   useEffect(() => {
-    const timer = setTimeout(() => setBooting(false), 2000); 
-    return () => clearTimeout(timer);
-  }, []);
+    if (!booting) return;
+    
+    let currentIndex = 0;
+    const interval = setInterval(() => {
+      if (currentIndex < bootLogsList.length) {
+        setBootLogs(prev => [...prev, bootLogsList[currentIndex]]);
+        currentIndex++;
+      } else {
+        clearInterval(interval);
+        setTimeout(() => setBooting(false), 600); // Small pause before jumping to desktop
+      }
+    }, 150); // Speed of the boot logs appearing
+    
+    return () => clearInterval(interval);
+  }, [booting]);
 
   // Close context menu
   useEffect(() => {
@@ -76,15 +110,14 @@ export default function Desktop() {
 
   if (booting) {
     return (
-      <div className="bg-[#050505] h-screen w-screen text-green-500 font-mono p-10 text-lg flex flex-col gap-2 relative overflow-hidden">
+      <div className="bg-[#050505] h-screen w-screen text-[#00ff00] font-mono p-10 text-sm md:text-lg flex flex-col relative overflow-hidden">
         {/* CRT Scanline Effect for Boot */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_2px,3px_100%] pointer-events-none z-50"></div>
         
-        <p>BIOS Version 1.0.4 | IIIT Sri City Firmware</p>
-        <p className="mt-2">Checking Memory... 16384MB OK</p>
-        <p>Mounting Virtual File System... OK</p>
-        <p>Loading Kernel (Siddharth_OS)... OK</p>
-        <p className="animate-pulse mt-4">_</p>
+        {bootLogs.map((log, i) => (
+          <p key={i} className="mb-1 min-h-[1.5rem]">{log}</p>
+        ))}
+        <p className="animate-pulse mt-1">_</p>
       </div>
     );
   }
@@ -98,7 +131,6 @@ export default function Desktop() {
       className="h-screen w-screen overflow-hidden relative selection:bg-green-500 selection:text-black font-mono"
       style={{ 
         backgroundColor: '#030303',
-        // Creating a Cool CSS Grid Background instead of an image
         backgroundImage: `
           radial-gradient(circle at 50% 50%, #111827 0%, #000 85%),
           linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
@@ -113,7 +145,7 @@ export default function Desktop() {
       
       {/* 2. Vignette Effect */}
       <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)]"></div>
-      <UserProfile />
+      
       {/* Desktop Icons Grid */}
       <div className="grid grid-flow-col grid-rows-6 gap-6 p-6 w-max h-full relative z-10">
         {fileSystem.map((item) => (
