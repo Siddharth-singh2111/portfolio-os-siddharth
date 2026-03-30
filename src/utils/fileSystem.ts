@@ -1,7 +1,7 @@
 import { 
   User, Cpu, Layout, Briefcase, 
   Terminal, Activity, Mail, ShieldAlert,
-  Scale, Share2, DollarSign, FileCode
+  Scale, Share2, DollarSign, FileCode, HeartPulse
 } from 'lucide-react';
 
 export const fileSystem = [
@@ -34,6 +34,21 @@ export const fileSystem = [
     icon: Layout,
     children: [
       {
+        // 🟢 COWSCUE ADDED HERE (Placed at the top since it's your most advanced project)
+        id: 'cowscue',
+        title: 'cowscue_dispatch_sys',
+        type: 'app',
+        icon: Activity, 
+        component: 'ProjectViewer',
+        data: {
+          tagline: "AI-Powered Rescue Logistics Engine",
+          tech: ["Next.js", "Gemini 2.5", "MongoDB Geospatial", "Pusher WebSockets", "Twilio"],
+          desc: "Architected a real-time logistical dispatch platform bridging citizens and NGOs. Engineered an AI triage system using Gemini Vision for spam filtering, live WebSocket dashboards via Pusher, and a custom WhatsApp bot for automated driver dispatch and route optimization.",
+          liveUrl: "https://cowscue.vercel.app",
+          repoUrl: "https://github.com/siddharth-singh2111/siddharth-singh2111-cowscue"
+        }
+      },
+      {
         id: 'mailflow',
         title: 'mailflow_daemon',
         type: 'app',
@@ -51,7 +66,7 @@ export const fileSystem = [
         id: 'civic',
         title: 'CivicSimplifier.exe',
         type: 'app',
-        icon: Scale, // Represents Legal
+        icon: Scale, 
         component: 'ProjectViewer',
         data: {
           tagline: "RAG SaaS for Legal Contracts",
@@ -79,7 +94,7 @@ export const fileSystem = [
         id: 'vectorshift',
         title: 'VectorShift_Flow',
         type: 'app',
-        icon: Share2, // Represents Nodes/Workflow
+        icon: Share2, 
         component: 'ProjectViewer',
         data: {
           tagline: "Interactive Workflow Editor",

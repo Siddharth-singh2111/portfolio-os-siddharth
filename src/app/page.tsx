@@ -211,11 +211,11 @@ export default function Desktop() {
           </div>
           <div className="py-2">
              <div className="px-4 py-2 hover:bg-white/5 cursor-pointer flex items-center gap-3 text-gray-300 text-sm transition-colors"
-                  onClick={() => window.open('https://github.com', '_blank')}>
+                  onClick={() => window.open('https://github.com/Siddharth-singh2111', '_blank')}>
                 <Github size={16} /> GitHub Profile
              </div>
              <div className="px-4 py-2 hover:bg-white/5 cursor-pointer flex items-center gap-3 text-gray-300 text-sm transition-colors"
-                  onClick={() => window.open('https://linkedin.com', '_blank')}>
+                  onClick={() => window.open('https://www.linkedin.com/in/siddharth-singh-dev/', '_blank')}>
                 <Linkedin size={16} /> LinkedIn
              </div>
              <div className="h-px bg-gray-800 my-2 mx-4"></div>

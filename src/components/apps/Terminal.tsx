@@ -46,11 +46,11 @@ const Terminal = () => {
           newHistory.push("Opening mail client...");
           break;
         case 'github':
-          window.open('https://github.com/your-username', '_blank'); // Replace with your actual GitHub
+          window.open('https://github.com/Siddharth-singh2111', '_blank'); 
           newHistory.push("Opening GitHub...");
           break;
         case 'linkedin':
-          window.open('https://linkedin.com/in/your-profile', '_blank'); // Replace with your actual LinkedIn
+          window.open('https://www.linkedin.com/in/siddharth-singh-dev/', '_blank'); 
           newHistory.push("Opening LinkedIn...");
           break;
         case 'clear':
