@@ -9,10 +9,11 @@ const experiences = [
     location: "Remote",
     date: "Jan 2026 - Present",
     desc: [
-      "Driving product growth and user engagement strategies through scalable full-stack development.",
-      "Optimizing platform performance and implementing new features to enhance user retention and reduce latency."
+      "Built and scaled core features for a full-stack LMS, contributing to daily active user growth[cite: 14].",
+      "Optimized performance by rewriting slow database queries and APIs, significantly reducing platform latency and page load speeds[cite: 15].",
+      "Implemented a real-time WebSocket notification system, increasing daily engagement by 15%[cite: 16]."
     ],
-    tech: ["Next.js", "Full-Stack", "Optimization"]
+    tech: ["Next.js", "WebSockets", "Database Optimization", "PostgreSQL"]
   },
   {
     id: 2,
@@ -21,10 +22,11 @@ const experiences = [
     location: "Remote",
     date: "July 2024 - Aug 2024",
     desc: [
-      "Developed Interacly, an interactive LLM-based platform, utilizing full-stack technologies.",
-      "Optimized backend API performance and integrated generative AI models for real-time, context-aware responses."
+      "Developed 'Interacly', an AI-driven customer support automation platform using LLMs[cite: 22].",
+      "Restructured Node.js backend architecture, resulting in a 30% reduction in monthly server costs[cite: 23].",
+      "Integrated Redis caching for high-traffic endpoints, improving data load times by over 200ms per request[cite: 24]."
     ],
-    tech: ["Generative AI", "Backend API", "LLMs"]
+    tech: ["Node.js", "LLMs", "Redis", "Generative AI"]
   }
 ];
 

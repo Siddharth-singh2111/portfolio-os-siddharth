@@ -34,7 +34,7 @@ export const fileSystem = [
     icon: Layout,
     children: [
       {
-        // 🟢 COWSCUE ADDED HERE (Placed at the top since it's your most advanced project)
+        
         id: 'cowscue',
         title: 'cowscue_dispatch_sys',
         type: 'app',
@@ -133,5 +133,12 @@ export const fileSystem = [
     type: 'executable',
     icon: Terminal,
     component: 'Terminal'
-  }
+  },
+  {
+  id: 'resume_pdf',
+  title: 'Resume',
+  type: 'file',
+  icon: FileCode, 
+  component: 'PDFViewer'
+}
 ];
