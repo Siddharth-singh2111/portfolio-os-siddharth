@@ -12,6 +12,7 @@ import PDFViewer from '@/components/apps/PDFViewer';
 import ContactApp from '@/components/apps/ContactApp'; 
 import ContextMenu from '@/components/os/ContextMenu';
 import MobileLayout from '@/components/os/MobileLayout';
+import UserProfile from '@/components/os/UserProfile';
 import { Github, Linkedin, Power, Wifi } from 'lucide-react'; 
 import ExperienceViewer from '@/components/apps/ExperienceViewer'; 
 
@@ -101,9 +102,12 @@ export default function Desktop() {
     return () => clearInterval(interval);
   }, [booting]);
 
-  // Close context menu
+  // Close menus on outside click
   useEffect(() => {
-    const handleClick = () => setContextMenu(null);
+    const handleClick = () => {
+      setContextMenu(null);
+      setStartMenuOpen(false);
+    };
     window.addEventListener('click', handleClick);
     return () => window.removeEventListener('click', handleClick);
   }, []);
@@ -169,6 +173,9 @@ export default function Desktop() {
         ))}
       </div>
 
+      {/* User Profile Desktop Widget */}
+      <UserProfile />
+
       {/* Window Manager Layer */}
       {windows.map((win) => (
         <WindowFrame key={win.id} id={win.id} title={win.title} zIndex={win.zIndex}>
@@ -187,7 +194,7 @@ export default function Desktop() {
               </h2>
               <div className="bg-black/40 p-4 rounded border border-white/10 backdrop-blur-sm">
                 <div className="text-green-400 whitespace-pre-wrap">
-                   <TypewriterEffect text={`> Loading User Profile...\n> Name: Siddharth Singh\n> Role: Full Stack Engineer\n> Education: B.Tech ECE @ IIIT Sri City (CGPA 8.5)\n> Leadership: Placement Coordinator, Android Lead @ IOTA\n\n> "Dedicated to solving engineering challenges through efficient coding."\n\n> Current Focus: [System Architecture, Microservices, RAG Pipelines]`} />
+                   <TypewriterEffect text={`> Loading User Profile...\n> Name: Siddharth Singh\n> Role: Full Stack Developer\n> Education: B.Tech ECE @ IIIT Sri City (CGPA: 8.5)\n> Milestones: 450+ algorithms solved, 1800 peak rating on LeetCode\n> Leadership: Placement Coordinator | Lead Coordinator Web3SSH'25 | Sponsorship Lead Abhisarga\n\n> "Dedicated to solving engineering challenges through scalable web applications and real-time distributed systems."\n\n> Current Focus: [Microservices, Queue Management, RAG Pipelines, Zero-Knowledge Arch]`} />
                    <span className="animate-pulse inline-block w-2 h-4 bg-green-500 ml-1 align-middle"></span>
                 </div>
               </div>
@@ -231,7 +238,10 @@ export default function Desktop() {
       <div className="absolute bottom-0 w-full h-12 bg-[#050505]/80 backdrop-blur-md border-t border-white/10 flex items-center px-4 z-[9999] justify-between shadow-[0_-5px_20px_rgba(0,0,0,0.5)]">
          <div className="flex items-center h-full gap-2">
             <div 
-              onClick={() => setStartMenuOpen(!startMenuOpen)} 
+              onClick={(e) => {
+                e.stopPropagation();
+                setStartMenuOpen(!startMenuOpen);
+              }} 
               className="bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold px-4 py-1.5 rounded-md mr-2 cursor-pointer transition-all hover:shadow-[0_0_10px_rgba(37,99,235,0.5)] active:scale-95 flex items-center gap-2"
             >
                <div className="w-2 h-2 bg-white rounded-full"></div> START

@@ -40,9 +40,15 @@ const MobileLayout = () => {
                   </span>
                 )}
               </div>
-              <p className="text-sm text-gray-400 mb-5 leading-relaxed">
-                {proj.data?.desc || "System process running..."}
-              </p>
+              <div className="text-sm text-gray-400 mb-5 leading-relaxed">
+                {Array.isArray(proj.data?.desc) ? (
+                  <ul className="space-y-1 list-disc list-inside">
+                    {proj.data.desc.map((d: string, i: number) => <li key={i}>{d}</li>)}
+                  </ul>
+                ) : (
+                  <p>{proj.data?.desc || "System process running..."}</p>
+                )}
+              </div>
               <div className="flex gap-4">
                 {proj.data?.liveUrl && (
                   <a href={proj.data.liveUrl} target="_blank" className="text-xs font-bold text-green-400 flex items-center gap-1 hover:underline">

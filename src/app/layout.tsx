@@ -13,8 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio OS",
-  description: "Created by Siddharth Singh",
+  title: "Siddharth Singh | Portfolio OS",
+  description: "Interactive desktop portfolio of Siddharth Singh, Full Stack Engineer & System Architect. Explore my projects, experience, and skills in a retro-futuristic OS environment.",
+  keywords: ["Siddharth Singh", "Portfolio", "Full Stack Engineer", "Next.js", "React", "OS Portfolio", "System Architect"],
 };
 
 export default function RootLayout({

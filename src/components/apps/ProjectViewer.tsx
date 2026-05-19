@@ -61,11 +61,21 @@ const ProjectViewer: React.FC<ProjectViewerProps> = ({ projectId }) => {
            <h3 className="text-xs text-gray-400 uppercase tracking-widest mb-3 flex items-center gap-2">
             <Activity size={12} /> System Logs
           </h3>
-          <p className="text-sm text-gray-300 leading-relaxed">
-            {tagline}
-            <br /><br />
-            <span className="text-gray-500">{">"}</span> {desc}
-          </p>
+          <div className="text-sm text-gray-300 leading-relaxed">
+            <p className="mb-4 text-green-400 font-bold">{tagline}</p>
+            {Array.isArray(desc) ? (
+              <ul className="space-y-2">
+                {desc.map((item, i) => (
+                  <li key={i} className="flex items-start gap-2">
+                    <span className="text-gray-500 mt-0.5">{">"}</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p><span className="text-gray-500">{">"}</span> {desc}</p>
+            )}
+          </div>
         </div>
       </div>
 

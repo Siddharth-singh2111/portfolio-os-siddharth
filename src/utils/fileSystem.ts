@@ -34,6 +34,24 @@ export const fileSystem = [
     icon: Layout,
     children: [
       {
+        id: 'nexusv2x',
+        title: 'nexus_v2x_engine',
+        type: 'app',
+        icon: HeartPulse, 
+        component: 'ProjectViewer',
+        data: {
+          tagline: "Real-Time Telemetry & Collision Engine",
+          tech: ["FastAPI", "Kafka", "Redis", "Next.js", "Deck.gl", "WebSockets", "Docker"],
+          desc: [
+            "Engineered an end-to-end V2X telemetry pipeline, utilizing Apache Kafka to ingest and process high-frequency geospatial traffic simulations.",
+            "Implemented a Python backend featuring 2D Kalman Filters to mathematically smooth GPS noise, writing real-time state vectors to a Redis geospatial database for sub-millisecond data retrieval.",
+            "Developed an O(log N) proximity radar using Redis Geohashing to detect and broadcast real-time vehicle collisions.",
+            "Built a hardware-accelerated Next.js client with Deck.gl to render live traffic WebGL heatmaps at 60 FPS, containerizing the entire microservice architecture via Docker Compose."
+          ],
+          repoUrl: "https://github.com/Siddharth-singh2111/NexusV2X"
+        }
+      },
+      {
         
         id: 'cowscue',
         title: 'cowscue_dispatch_sys',
@@ -42,8 +60,13 @@ export const fileSystem = [
         component: 'ProjectViewer',
         data: {
           tagline: "AI-Powered Rescue Logistics Engine",
-          tech: ["Next.js", "Gemini 2.5", "MongoDB Geospatial", "Pusher WebSockets", "Twilio"],
-          desc: "Architected a real-time logistical dispatch platform bridging citizens and NGOs. Engineered an AI triage system using Gemini Vision for spam filtering, live WebSocket dashboards via Pusher, and a custom WhatsApp bot for automated driver dispatch and route optimization.",
+          tech: ["Next.js", "TypeScript", "MongoDB", "Gemini AI", "Twilio", "OSRM"],
+          desc: [
+            "A real-time animal rescue platform connecting citizens with NGOs — uses Pusher for live WebSocket updates and Clerk for role-based access control.",
+            "Built an AI triage system with Gemini 2.5 Flash that filters spam reports, estimates injury severity, and responds in multiple regional languages.",
+            "Implemented heatmap analytics and batch route optimisation via OSRM to surface accident hotspots and suggest fuel-efficient rescue paths.",
+            "Integrated Twilio to push WhatsApp dispatch alerts with Google Maps coordinates to NGO rescue drivers."
+          ],
           liveUrl: "https://cowscue.vercel.app",
           repoUrl: "https://github.com/siddharth-singh2111/siddharth-singh2111-cowscue"
         }
@@ -56,8 +79,12 @@ export const fileSystem = [
         component: 'ProjectViewer',
         data: {
           tagline: "Distributed Email Automation Engine",
-          tech: ["TypeScript", "Node.js", "Redis (BullMQ)", "PostgreSQL"],
-          desc: "Engineered a scalable automation platform handling bulk dispatching via Redis message queues. Decoupled processing to ensure high availability and architected a custom analytics engine using 1x1 tracking pixels.",
+          tech: ["Node.js", "TypeScript", "Redis"],
+          desc: [
+            "Built a bulk email dispatch tool backed by Redis (BullMQ) queues, so high-volume sends don’t block the server.",
+            "Resolved cloud connection timeouts by configuring SMTP pooling and automatic retries, consistently hitting a 99.9% delivery rate.",
+            "Added pixel-based open-rate tracking to give campaigns measurable reach data."
+          ],
           liveUrl: "https://mailflow-three.vercel.app",
           repoUrl: "https://github.com/Siddharth-singh2111/MailFlow"
         }

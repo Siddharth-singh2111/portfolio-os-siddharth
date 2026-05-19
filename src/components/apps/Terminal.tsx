@@ -39,7 +39,7 @@ const Terminal = () => {
           );
           break;
         case 'about':
-          newHistory.push("Siddharth Singh | Full Stack Engineer | System Architect");
+          newHistory.push("Siddharth Singh | Full Stack Developer | Placement Coordinator @ IIIT Sri City");
           break;
         case 'email':
           window.open('mailto:siddharth.s23@iiits.in');

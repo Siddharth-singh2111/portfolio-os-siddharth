@@ -9,11 +9,11 @@ const experiences = [
     location: "Remote",
     date: "Jan 2026 - Present",
     desc: [
-      "Built and scaled core features for a full-stack LMS, contributing to daily active user growth[cite: 14].",
-      "Optimized performance by rewriting slow database queries and APIs, significantly reducing platform latency and page load speeds[cite: 15].",
-      "Implemented a real-time WebSocket notification system, increasing daily engagement by 15%[cite: 16]."
+      "Built and maintained core features for a full-stack LMS; contributed to measurable growth in daily active users.",
+      "Identified and rewrote slow database queries and REST APIs, noticeably reducing page load times across the platform.",
+      "Set up a real-time WebSocket notification system that improved daily engagement by around 15%."
     ],
-    tech: ["Next.js", "WebSockets", "Database Optimization", "PostgreSQL"]
+    tech: ["Next.js", "WebSockets", "Database Optimization", "PostgreSQL", "REST APIs"]
   },
   {
     id: 2,
@@ -22,11 +22,11 @@ const experiences = [
     location: "Remote",
     date: "July 2024 - Aug 2024",
     desc: [
-      "Developed 'Interacly', an AI-driven customer support automation platform using LLMs[cite: 22].",
-      "Restructured Node.js backend architecture, resulting in a 30% reduction in monthly server costs[cite: 23].",
-      "Integrated Redis caching for high-traffic endpoints, improving data load times by over 200ms per request[cite: 24]."
+      "Developed Interacly, a platform that uses LLMs to handle and automate customer support workflows.",
+      "Refactored the Node.js backend for better resource utilisation, bringing monthly server costs down by ~30%.",
+      "Added Redis caching to high-traffic endpoints, shaving 200ms+ off data load times for common requests."
     ],
-    tech: ["Node.js", "LLMs", "Redis", "Generative AI"]
+    tech: ["Node.js", "LLMs", "Redis", "Generative AI", "Backend Optimization"]
   }
 ];
 
